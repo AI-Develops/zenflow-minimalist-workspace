@@ -1,0 +1,192 @@
+:root {
+  /* Nordic Noir Palette */
+  --bg-color: #1a1b26;
+  --text-primary: #a9b1d6;
+  --text-accent: #7aa2f7;
+  --glass-bg: rgba(26, 27, 38, 0.4);
+  --glass-border: rgba(122, 162, 247, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --danger-color: #f7768e;
+  
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-speed: 0.5s;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.zen-container {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* View Management */
+.view {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-speed) ease-in-out;
+  width: 100%;
+  text-align: center;
+}
+
+.view.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Typography */
+h1 {
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--text-accent);
+  margin-bottom: 1rem;
+}
+
+/* Input Styling */
+input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-bottom: 1px solid var(--text-accent);
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: var(--glass-shadow);
+  transition: opacity var(--transition-speed) ease-in-out;
+  
+  /* UX: Fade out when idle (handled by mouse events in container) */
+  opacity: 0.6;
+}
+
+.zen-container:hover .glass-card {
+  opacity: 1;
+}
+
+/* Timer */
+.timer-display {
+  font-size: 5rem;
+  font-weight: 200;
+  margin: 1rem 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.05);
+  transform: scale(1.1);
+}
+
+.icon-btn.danger:hover {
+  color: var(--danger-color);
+}
+
+/* Soundboard Footer */
+.soundboard {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: 30px;
+}
+
+.sound-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.sound-btn:hover {
+  opacity: 0.8;
+}
+
+.sound-btn.active {
+  opacity: 1;
+  color: var(--text-accent);
+  filter: drop-shadow(0 0 8px var(--text-accent));
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .timer-display {
+    font-size: 4rem;
+  }
+  
+  .glass-card {
+    padding: 2rem 1rem;
+  }
+}
