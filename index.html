@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ZenFlow: A minimalist focus application."
+    />
+    <title>ZenFlow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Wrapper for potential dynamic backgrounds -->
+    <div class="app-background"></div>
+
+    <main class="zen-container">
+      <!-- State: Empty (Input) -->
+      <div id="input-view" class="view active">
+        <h1 class="fade-in">What is your focus?</h1>
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Enter your one task..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- State: Active (Timer) -->
+      <div id="timer-view" class="view hidden">
+        <div class="glass-card">
+          <h2 id="current-task-display">Reading documentation</h2>
+          <div class="timer-display" id="timer">25:00</div>
+          
+          <div class="controls">
+            <button id="btn-add-time" class="icon-btn" aria-label="Add 5 minutes">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </button>
+            
+            <button id="btn-reset" class="icon-btn danger" aria-label="Clear Task">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soundboard (Always available at bottom) -->
+      <footer class="soundboard">
+        <button class="sound-btn" data-sound="rain" aria-label="Play Rain">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"></path>
+            <path d="M16 18v2"></path>
+            <path d="M8 18v2"></path>
+            <path d="M12 20v2"></path>
+          </svg>
+        </button>
+        <button class="sound-btn" data-sound="waves" aria-label="Play Waves">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 12h20"></path>
+            <path d="M2 12c5.5 0 8.5 6 13.5 6 3 0 5.5-3 6.5-6"></path>
+            <path d="M2 12c4 0 7-5 11-5 4 0 6 5 9 5"></path>
+          </svg>
+        </button>
+        <button class="sound-btn" data-sound="forest" aria-label="Play Forest">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 9v11"></path>
+            <path d="M7 9v11"></path>
+            <path d="M8 16a3 3 0 0 0 6 0"></path>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a5 5 0 0 0-5 5v5a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"></path>
+          </svg>
+        </button>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
